@@ -1,11 +1,9 @@
 import React from 'react'
-
-function FunctionalComponentExample() {
+function FunctionalComponentExample(props) {
     return (
         <div>
-            <h1>Hello World!</h1>
+            <h1>Hello {props.myname} from Functional Component!</h1>
         </div>
     )
 }
-
 export default FunctionalComponentExample

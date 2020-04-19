@@ -1,11 +1,13 @@
 # ReactJS
 This README files contains basic information required to learn and create react app.
 ## Quick Links
--   [What is React](#what-is-react)
--   [Create React App](#create-react-app)
--   [Components](#components)
--       [Functional Components](#functional-components)
--       [Class Components](#class-components)
+-   [React Basics](#react-basics)
+    -   [What is React](#what-is-react)
+    -   [Create React App](#create-react-app)
+    -   [Components](#components)
+        -   [Functional Components](#functional-components)
+        -   [Class Components](#class-components)
+# React Basics
 ## What is React
 -   React is a Javascript library created by Facebook and is used for building user interfaces (UIs) and front-end applications.
 -   React is often called a framework because of its behaviour and capabilities.
@@ -118,5 +120,45 @@ class ClassComponentExample extends Component {
 export default ClassComponentExample
 
 ```
-## State
 ## Props
+props provide a way of passing properties/data down from one component to another, typically from a parent to a child component (unidirectional dataflow).
+
+It’s important to note that props are **read-only** and that a component must never modify the props passed to it.
+
+Example:
+
+**Parent Component**
+```javascript
+    <div className="App">
+        <ClassComponentExample myname="Fawad" />
+        <FunctionalComponentExample myname="Fawad Bin Tariq" />
+    </div>
+```
+
+**props in Class Component**
+```javascript
+import React, { Component } from 'react'
+class ClassComponentExample extends Component {
+    render() {
+        return (
+            <div>
+                <h1>Hello {this.props.myname} from Class Component</h1>
+            </div>
+        )
+    }
+}
+export default ClassComponentExample
+```
+
+**props in Functional Component**
+```javascript
+import React from 'react'
+function FunctionalComponentExample(props) {
+    return (
+        <div>
+            <h1>Hello {props.myname} from Functional Component!</h1>
+        </div>
+    )
+}
+export default FunctionalComponentExample
+```
