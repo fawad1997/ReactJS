@@ -7,6 +7,11 @@ This README files contains basic information required to learn and create react 
     -   [Components](#components)
         -   [Functional Components](#functional-components)
         -   [Class Components](#class-components)
+    -   [Props](#props)
+    -   [State](#state)
+    -   [Destructure Props and State](#destructure-props-and-state)
+    -   [Map-List Ilterations](#map-list-ilterations)
+
 # React Basics
 ## What is React
 -   React is a Javascript library created by Facebook and is used for building user interfaces (UIs) and front-end applications.
@@ -186,7 +191,7 @@ class ClassComponentExample extends Component {
 }
 export default ClassComponentExample
 ```
-#### setState
+#### setState and Event handling
 You can change value of state by using setState method.
 Example:
 
@@ -208,6 +213,62 @@ Example:
             <>
                 <h1>{this.state.counter}</h1>
                 <button type="button" onClick={this.incrementOne}>Increment</button>
+            </>
+        )
+    }
+```
+
+If you call **setState** again and again in on request, it may not work, for that you need to pass previous state too.
+
+Example:
+```javascript
+        this.setState(prevState=>({
+            counter:prevState.counter+1
+        }))
+```
+
+## Destructure Props and State
+You can de structure **props** and **state** to get rid of **this.prop** or **this.state**
+
+Example:
+```javascript
+  render() {
+        const {myname} = this.props
+        return (
+            <>
+                <p>{myname}</p>
+            </>
+        )
+    }
+```
+
+## Map-List Ilterations
+In React, the **map** method used to traverse and display a list of similar objects of a component. A map is not the feature of React. Instead, it is the standard JavaScript function that could be called on any array. The map() method creates a new array by calling a provided function on every element in the calling array.
+
+Example:
+```javascript
+    constructor(props) {
+        super(props)
+        this.state = {
+             usersList:[
+                 {
+                     id:1,
+                     name:"Fawad",
+                     age:23
+                 },
+                 {
+                    id:2,
+                    name:"Asad",
+                    age:25
+                }
+             ]
+        }
+    }
+    render() {
+        const users = this.state.usersList.map((user)=> <h1>Name is {user.name} and age is {user.age}</h1>)
+        return (
+            <>
+                {users}
             </>
         )
     }

@@ -2,21 +2,26 @@ import React, { Component } from 'react'
 class ClassComponentExample extends Component {
     constructor(props) {
         super(props)
-    
         this.state = {
-             counter: 0
+             usersList:[
+                 {
+                     id:1,
+                     name:"Fawad",
+                     age:23
+                 },
+                 {
+                    id:2,
+                    name:"Asad",
+                    age:25
+                }
+             ]
         }
     }
-    incrementOne = () =>{
-        this.setState({
-            counter:this.state.counter+1
-        })
-    }
     render() {
+        const users = this.state.usersList.map((user)=> <h1>Name is {user.name} and age is {user.age}</h1>)
         return (
             <>
-                <h1>{this.state.counter}</h1>
-                <button type="button" onClick={this.incrementOne}>Increment</button>
+                {users}
             </>
         )
     }
