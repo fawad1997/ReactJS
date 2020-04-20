@@ -1,10 +1,23 @@
 import React, { Component } from 'react'
 class ClassComponentExample extends Component {
+    constructor(props) {
+        super(props)
+    
+        this.state = {
+             counter: 0
+        }
+    }
+    incrementOne = () =>{
+        this.setState({
+            counter:this.state.counter+1
+        })
+    }
     render() {
         return (
-            <div>
-                <h1>Hello {this.props.myname} from Class Component</h1>
-            </div>
+            <>
+                <h1>{this.state.counter}</h1>
+                <button type="button" onClick={this.incrementOne}>Increment</button>
+            </>
         )
     }
 }

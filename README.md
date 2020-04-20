@@ -162,3 +162,53 @@ function FunctionalComponentExample(props) {
 }
 export default FunctionalComponentExample
 ```
+
+## state
+State is the place where the data comes from.
+
+Example:
+```javascript
+class ClassComponentExample extends Component {
+    constructor(props) {
+        super(props)
+    
+        this.state = {
+             message: 'Hello World'
+        }
+    }
+    render() {
+        return (
+            <>
+                <h1>{this.state.message}</h1>
+            </>
+        )
+    }
+}
+export default ClassComponentExample
+```
+#### setState
+You can change value of state by using setState method.
+Example:
+
+```javascript
+   constructor(props) {
+        super(props)
+    
+        this.state = {
+             counter: 0
+        }
+    }
+    incrementOne = () =>{
+        this.setState({
+            counter:this.state.counter+1
+        })
+    }
+    render() {
+        return (
+            <>
+                <h1>{this.state.counter}</h1>
+                <button type="button" onClick={this.incrementOne}>Increment</button>
+            </>
+        )
+    }
+```
