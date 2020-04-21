@@ -4,7 +4,7 @@ class FormExample extends Component {
     constructor(props) {
         super(props)
         this.state = {
-             description:''
+             flavor:''
         }
         this.handleSubmit = this.handleSubmit.bind(this)
     }
@@ -14,7 +14,7 @@ class FormExample extends Component {
         })
     }
     handleSubmit(event) {
-        alert('Description was ' + this.state.description);
+        alert('flavor was ' + this.state.flavor);
         event.preventDefault();
       }
     render() {
@@ -22,8 +22,15 @@ class FormExample extends Component {
             <React.Fragment>
                 <h1>Form Example</h1>
                 <form  onSubmit={this.handleSubmit}>
-                    <label>Description :</label>
-                    <textarea name="description" value={this.state.description} onChange={this.changeHandler}></textarea>
+                    <label>
+                        Pick your favorite flavor:
+                        <select name="flavor" value={this.state.flavor} onChange={this.changeHandler}>
+                            <option value="grapefruit">Grapefruit</option>
+                            <option value="lime">Lime</option>
+                            <option value="coconut">Coconut</option>
+                            <option value="mango">Mango</option>
+                        </select>
+                    </label>
                     <input type="submit" value="Submit" />
                 </form>
             </React.Fragment>

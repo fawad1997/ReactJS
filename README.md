@@ -309,6 +309,41 @@ handleSubmit(event) {
     <input type="submit" value="Submit" />
 </form>
 ```
+### Select Tag
+##### constructor and functions
+```javascript
+constructor(props) {
+    super(props)
+    this.state = {
+            flavor:''
+    }
+    this.handleSubmit = this.handleSubmit.bind(this)
+}
+changeHandler = (event) =>{
+    this.setState({
+        [event.target.name]: event.target.value
+    })
+}
+handleSubmit(event) {
+    alert('flavor was ' + this.state.flavor);
+    event.preventDefault();
+    }
+```
+##### html
+```javascript
+<form  onSubmit={this.handleSubmit}>
+    <label>
+        Pick your favorite flavor:
+        <select name="flavor" value={this.state.flavor} onChange={this.changeHandler}>
+            <option value="grapefruit">Grapefruit</option>
+            <option value="lime">Lime</option>
+            <option value="coconut">Coconut</option>
+            <option value="mango">Mango</option>
+        </select>
+    </label>
+    <input type="submit" value="Submit" />
+</form>
+```
                     <label>Gender : </label>
                     <label><input type="radio" value={this.state.gender} checked={this.state.gender==='male'}></input>male</label>
                     <label><input type="radio" value={this.state.gender} checked={this.state.gender==='female'}></input>female</label><br/>
