@@ -10,6 +10,10 @@ This README files contains basic information required to learn and create react 
     -   [Props](#props)
     -   [State](#state)
     -   [Destructure Props and State](#destructure-props-and-state)
+    -   [Forms](#forms)
+        -   [Basic Form](#basic-form)
+        -   [TextArea](#textarea)
+        -   [Select Tag](#select-tag)
     -   [Map-List Ilterations](#map-list-ilterations)
 
 # React Basics
@@ -330,7 +334,7 @@ handleSubmit(event) {
     }
 ```
 ##### html
-```javascript
+```html
 <form  onSubmit={this.handleSubmit}>
     <label>
         Pick your favorite flavor:
