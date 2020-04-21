@@ -279,6 +279,36 @@ class FormExample extends Component {
 }
 export default FormExample
 ```
+
+### TextArea
+Text areas work same as **input type="text"**
+##### constructor and functions
+```javascript
+constructor(props) {
+    super(props)
+    this.state = {
+            description:''
+    }
+    this.handleSubmit = this.handleSubmit.bind(this)
+}
+changeHandler = (event) =>{
+    this.setState({
+        [event.target.name]: event.target.value
+    })
+}
+handleSubmit(event) {
+    alert('Description was ' + this.state.description);
+    event.preventDefault();
+    }
+```
+##### Form Html
+```javascript
+<form  onSubmit={this.handleSubmit}>
+    <label>Description :</label>
+    <textarea name="description" value={this.state.description} onChange={this.changeHandler}></textarea>
+    <input type="submit" value="Submit" />
+</form>
+```
                     <label>Gender : </label>
                     <label><input type="radio" value={this.state.gender} checked={this.state.gender==='male'}></input>male</label>
                     <label><input type="radio" value={this.state.gender} checked={this.state.gender==='female'}></input>female</label><br/>

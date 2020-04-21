@@ -4,8 +4,7 @@ class FormExample extends Component {
     constructor(props) {
         super(props)
         this.state = {
-             email:'',
-             password:''
+             description:''
         }
         this.handleSubmit = this.handleSubmit.bind(this)
     }
@@ -15,7 +14,7 @@ class FormExample extends Component {
         })
     }
     handleSubmit(event) {
-        alert('Email was ' + this.state.email+' Password was '+this.state.password);
+        alert('Description was ' + this.state.description);
         event.preventDefault();
       }
     render() {
@@ -23,10 +22,8 @@ class FormExample extends Component {
             <React.Fragment>
                 <h1>Form Example</h1>
                 <form  onSubmit={this.handleSubmit}>
-                    <label>Email :</label>
-                    <input type="text" name="email" value={this.state.email} onChange={this.changeHandler}/><br/>
-                    <label>Password :</label>
-                    <input type="password" name="password" value={this.state.password} onChange={this.changeHandler}/><br/>
+                    <label>Description :</label>
+                    <textarea name="description" value={this.state.description} onChange={this.changeHandler}></textarea>
                     <input type="submit" value="Submit" />
                 </form>
             </React.Fragment>
