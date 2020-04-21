@@ -1,31 +1,32 @@
 import React, { Component } from 'react'
+import Checkbox from './Checkbox'
 
 class FormExample extends Component {
     constructor(props) {
         super(props)
         this.state = {
-             gender:'male'
+            label:'I agree with terms and conditions',
+            name:'agreement',
+            isChecked:true
         }
         this.handleSubmit = this.handleSubmit.bind(this)
     }
     changeHandler = (event) =>{
-        alert([event.target.name]+' = '+ event.target.value)
         this.setState({
-            [event.target.name]: event.target.value
+            isChecked: event.target.checked
         })
+        alert(this.state.isChecked)
     }
     handleSubmit(event) {
-        alert('gender was ' + this.state.gender);
         event.preventDefault();
       }
     render() {
+        //const {label,name,isChecked} = this.state
         return (
             <React.Fragment>
                 <h1>Form Example</h1>
                 <form  onSubmit={this.handleSubmit}>
-                    <label>Gender : </label>
-                    <label><input type="radio" name="gender" value="male" checked={this.state.gender==='male'} onChange={this.changeHandler}></input>male</label>
-                    <label><input type="radio" name="gender" value="female" checked={this.state.gender==='female'} onChange={this.changeHandler}></input>female</label><br/>
+                    <Checkbox name={this.state.name} onChange={this.changeHandler} label={this.state.label} checked={this.state.isChecked} />
                     <input type="submit" value="Submit" />
                 </form>
             </React.Fragment>

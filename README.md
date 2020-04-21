@@ -15,6 +15,7 @@ This README files contains basic information required to learn and create react 
         -   [TextArea](#textarea)
         -   [Select Tag](#select-tag)
         -   [Radio Buttons](#radio-buttons)
+        -   [Checkbox using reusable component](#checkbox-using-reusable-component)
     -   [Map-List Ilterations](#map-list-ilterations)
 
 # React Basics
@@ -352,23 +353,23 @@ handleSubmit(event) {
 ### Radio Buttons
 ##### constructor and actions
 ```javascript
-    constructor(props) {
-        super(props)
-        this.state = {
-             gender:'male'
-        }
-        this.handleSubmit = this.handleSubmit.bind(this)
+constructor(props) {
+    super(props)
+    this.state = {
+            gender:'male'
     }
-    changeHandler = (event) =>{
-        alert([event.target.name]+' = '+ event.target.value)
-        this.setState({
-            [event.target.name]: event.target.value
-        })
+    this.handleSubmit = this.handleSubmit.bind(this)
+}
+changeHandler = (event) =>{
+    alert([event.target.name]+' = '+ event.target.value)
+    this.setState({
+        [event.target.name]: event.target.value
+    })
+}
+handleSubmit(event) {
+    alert('gender was ' + this.state.gender);
+    event.preventDefault();
     }
-    handleSubmit(event) {
-        alert('gender was ' + this.state.gender);
-        event.preventDefault();
-      }
 ```
 ##### html
 ```html
@@ -379,7 +380,62 @@ handleSubmit(event) {
     <input type="submit" value="Submit" />
 </form>
 ```
-                    <label><input type="checkbox" onChange={this.changeHandler}></input>I agree with terms and conditions</label><br/>
+### Checkbox using reusable component
+
+Created a reuseable checkbox component
+##### checkbox component
+```javascript
+import React from 'react'
+import PropTypes from 'prop-types'
+function Checkbox({type='checkbox',name,checked,onChange,label}) {
+    return (<label><input type={type} name={name} checked={checked} onChange={onChange}></input>{label}</label>)
+}
+Checkbox.propTypes = {
+    type: PropTypes.string,
+    name: PropTypes.string.isRequired,
+    checked: PropTypes.bool,
+    onChange: PropTypes.func.isRequired,
+    label:PropTypes.string.isRequired
+}
+export default Checkbox
+```
+
+##### usage of that component
+```javascript
+class FormExample extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            label:'I agree with terms and conditions',
+            name:'agreement',
+            isChecked:true
+        }
+        this.handleSubmit = this.handleSubmit.bind(this)
+    }
+    changeHandler = (event) =>{
+        this.setState({
+            isChecked: event.target.checked
+        })
+        alert(this.state.isChecked)
+    }
+    handleSubmit(event) {
+        event.preventDefault();
+      }
+    render() {
+        //const {label,name,isChecked} = this.state
+        return (
+            <React.Fragment>
+                <h1>Form Example</h1>
+                <form  onSubmit={this.handleSubmit}>
+                    <Checkbox name={this.state.name} onChange={this.changeHandler} label={this.state.label} checked={this.state.isChecked} />
+                    <input type="submit" value="Submit" />
+                </form>
+            </React.Fragment>
+        )
+    }
+}
+export default FormExample
+```
 ## Map-List Ilterations
 In React, the **map** method used to traverse and display a list of similar objects of a component. A map is not the feature of React. Instead, it is the standard JavaScript function that could be called on any array. The map() method creates a new array by calling a provided function on every element in the calling array.
 
