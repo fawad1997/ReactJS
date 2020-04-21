@@ -18,7 +18,7 @@ class ClassComponentExample extends Component {
         }
     }
     render() {
-        const users = this.state.usersList.map((user)=> <h1>Name is {user.name} and age is {user.age}</h1>)
+        const users = this.state.usersList.map((user)=> <h1 key={user.id}>Name is {user.name} and age is {user.age}</h1>)
         return (
             <>
                 {users}

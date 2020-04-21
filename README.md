@@ -241,7 +241,48 @@ Example:
         )
     }
 ```
-
+## Forms
+### Basic Form
+```javascript
+class FormExample extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+             email:'',
+             password:''
+        }
+        this.handleSubmit = this.handleSubmit.bind(this)
+    }
+    changeHandler = (event) =>{
+        this.setState({
+            [event.target.name]: event.target.value
+        })
+    }
+    handleSubmit(event) {
+        alert('Email was ' + this.state.email+' Password was '+this.state.password);
+        event.preventDefault();
+      }
+    render() {
+        return (
+            <React.Fragment>
+                <h1>Form Example</h1>
+                <form  onSubmit={this.handleSubmit}>
+                    <label>Email :</label>
+                    <input type="text" name="email" value={this.state.email} onChange={this.changeHandler}/><br/>
+                    <label>Password :</label>
+                    <input type="password" name="password" value={this.state.password} onChange={this.changeHandler}/><br/>
+                    <input type="submit" value="Submit" />
+                </form>
+            </React.Fragment>
+        )
+    }
+}
+export default FormExample
+```
+                    <label>Gender : </label>
+                    <label><input type="radio" value={this.state.gender} checked={this.state.gender==='male'}></input>male</label>
+                    <label><input type="radio" value={this.state.gender} checked={this.state.gender==='female'}></input>female</label><br/>
+                    <label><input type="checkbox" onChange={this.changeHandler}></input>I agree with terms and conditions</label><br/>
 ## Map-List Ilterations
 In React, the **map** method used to traverse and display a list of similar objects of a component. A map is not the feature of React. Instead, it is the standard JavaScript function that could be called on any array. The map() method creates a new array by calling a provided function on every element in the calling array.
 
@@ -265,7 +306,7 @@ Example:
         }
     }
     render() {
-        const users = this.state.usersList.map((user)=> <h1>Name is {user.name} and age is {user.age}</h1>)
+        const users = this.state.usersList.map((user)=> <h1 key={user.id}>Name is {user.name} and age is {user.age}</h1>)
         return (
             <>
                 {users}
