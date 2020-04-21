@@ -14,6 +14,7 @@ This README files contains basic information required to learn and create react 
         -   [Basic Form](#basic-form)
         -   [TextArea](#textarea)
         -   [Select Tag](#select-tag)
+        -   [Radio Buttons](#radio-buttons)
     -   [Map-List Ilterations](#map-list-ilterations)
 
 # React Basics
@@ -348,9 +349,36 @@ handleSubmit(event) {
     <input type="submit" value="Submit" />
 </form>
 ```
-                    <label>Gender : </label>
-                    <label><input type="radio" value={this.state.gender} checked={this.state.gender==='male'}></input>male</label>
-                    <label><input type="radio" value={this.state.gender} checked={this.state.gender==='female'}></input>female</label><br/>
+### Radio Buttons
+##### constructor and actions
+```javascript
+    constructor(props) {
+        super(props)
+        this.state = {
+             gender:'male'
+        }
+        this.handleSubmit = this.handleSubmit.bind(this)
+    }
+    changeHandler = (event) =>{
+        alert([event.target.name]+' = '+ event.target.value)
+        this.setState({
+            [event.target.name]: event.target.value
+        })
+    }
+    handleSubmit(event) {
+        alert('gender was ' + this.state.gender);
+        event.preventDefault();
+      }
+```
+##### html
+```html
+<form  onSubmit={this.handleSubmit}>
+    <label>Gender : </label>
+    <label><input type="radio" name="gender" value="male" checked={this.state.gender==='male'} onChange={this.changeHandler}></input>male</label>
+    <label><input type="radio" name="gender" value="female" checked={this.state.gender==='female'} onChange={this.changeHandler}></input>female</label><br/>
+    <input type="submit" value="Submit" />
+</form>
+```
                     <label><input type="checkbox" onChange={this.changeHandler}></input>I agree with terms and conditions</label><br/>
 ## Map-List Ilterations
 In React, the **map** method used to traverse and display a list of similar objects of a component. A map is not the feature of React. Instead, it is the standard JavaScript function that could be called on any array. The map() method creates a new array by calling a provided function on every element in the calling array.

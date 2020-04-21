@@ -4,17 +4,18 @@ class FormExample extends Component {
     constructor(props) {
         super(props)
         this.state = {
-             flavor:''
+             gender:'male'
         }
         this.handleSubmit = this.handleSubmit.bind(this)
     }
     changeHandler = (event) =>{
+        alert([event.target.name]+' = '+ event.target.value)
         this.setState({
             [event.target.name]: event.target.value
         })
     }
     handleSubmit(event) {
-        alert('flavor was ' + this.state.flavor);
+        alert('gender was ' + this.state.gender);
         event.preventDefault();
       }
     render() {
@@ -22,15 +23,9 @@ class FormExample extends Component {
             <React.Fragment>
                 <h1>Form Example</h1>
                 <form  onSubmit={this.handleSubmit}>
-                    <label>
-                        Pick your favorite flavor:
-                        <select name="flavor" value={this.state.flavor} onChange={this.changeHandler}>
-                            <option value="grapefruit">Grapefruit</option>
-                            <option value="lime">Lime</option>
-                            <option value="coconut">Coconut</option>
-                            <option value="mango">Mango</option>
-                        </select>
-                    </label>
+                    <label>Gender : </label>
+                    <label><input type="radio" name="gender" value="male" checked={this.state.gender==='male'} onChange={this.changeHandler}></input>male</label>
+                    <label><input type="radio" name="gender" value="female" checked={this.state.gender==='female'} onChange={this.changeHandler}></input>female</label><br/>
                     <input type="submit" value="Submit" />
                 </form>
             </React.Fragment>
