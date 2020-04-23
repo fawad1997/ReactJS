@@ -544,3 +544,17 @@ export default Post
 To install bootstrap, run command ```npm install bootstrap``` OR to install materializecss run command ```npm install materialize-css@next```
 Then include them in your project.
 ```import 'materialize-css/dist/css/materialize.min.css';```
+
+### Change Active class when path changes
+```html
+<li className={this.getNavLinkClass("/")}><NavLink to="/">Home</NavLink></li>
+<li className={this.getNavLinkClass("/error")}><NavLink to="/error">404</NavLink></li>
+```
+```javascript
+getNavLinkClass = (path) => {
+    return this.props.location.pathname === path ? 'active' : '';
+}
+```
+```javascript
+<Route path="/" component={NavBar} />
+```
