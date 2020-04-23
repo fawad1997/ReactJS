@@ -15,6 +15,7 @@ This README files contains basic information required to learn and create react 
         -   [Generic Form](#generic-form)
     -   [Form Validations](#form-validations)
     -   [Map-List Ilterations](#map-list-ilterations)
+    -   [React Router](#react-router)
 
 # React Basics
 ## What is React
