@@ -539,3 +539,8 @@ function Post(props) {
 }
 export default Post
 ```
+
+## Using Bootstrap or MaterializeCSS
+To install bootstrap, run command ```npm install bootstrap``` OR to install materializecss run command ```npm install materialize-css@next```
+Then include them in your project.
+```import 'materialize-css/dist/css/materialize.min.css';```
