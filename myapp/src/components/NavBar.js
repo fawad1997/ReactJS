@@ -14,6 +14,9 @@ class NavBar extends Component {
         return this.props.location.pathname === path ? 'active' : '';
       }
     render() {
+        setTimeout(()=>{
+            this.props.history.push('/error')
+        },5000);
         return (
             <nav>
                 <div className="nav-wrapper">

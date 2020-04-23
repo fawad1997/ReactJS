@@ -539,12 +539,6 @@ function Post(props) {
 }
 export default Post
 ```
-
-## Using Bootstrap or MaterializeCSS
-To install bootstrap, run command ```npm install bootstrap``` OR to install materializecss run command ```npm install materialize-css@next```
-Then include them in your project.
-```import 'materialize-css/dist/css/materialize.min.css';```
-
 ### Change Active class when path changes
 ```html
 <li className={this.getNavLinkClass("/")}><NavLink to="/">Home</NavLink></li>
@@ -558,3 +552,17 @@ getNavLinkClass = (path) => {
 ```javascript
 <Route path="/" component={NavBar} />
 ```
+
+### Programming Redirects
+to redirect form program use **history.push()** function.
+Example
+```javascript
+setTimeout(()=>{
+    this.props.history.push('/error')
+},5000);
+```
+
+## Using Bootstrap or MaterializeCSS
+To install bootstrap, run command ```npm install bootstrap``` OR to install materializecss run command ```npm install materialize-css@next```
+Then include them in your project.
+```import 'materialize-css/dist/css/materialize.min.css';```
