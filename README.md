@@ -566,3 +566,8 @@ setTimeout(()=>{
 To install bootstrap, run command ```npm install bootstrap``` OR to install materializecss run command ```npm install materialize-css@next```
 Then include them in your project.
 ```import 'materialize-css/dist/css/materialize.min.css';```
+
+# Redux
+Install **redux** and **react-redux**
+
+```npm install redux``` and ```npm install react-redux```
