@@ -133,7 +133,7 @@ export default ClassComponentExample
 ```
 ## Lifecycle
 The three most useful lifecycle functions are **render** **componentDidMount** and **componentWillRecieveProps**
-![](/gitimages/lifecycle.jpg)
+![](/gitimages/lifecycle.png)
 ## Props
 props provide a way of passing properties/data down from one component to another, typically from a parent to a child component (unidirectional dataflow).
 
