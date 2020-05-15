@@ -7,6 +7,7 @@ This README files contains basic information required to learn and create react 
     -   [Components](#components)
         -   [Functional Components](#functional-components)
         -   [Class Components](#class-components)
+    -   [Lifecycle](#lifecycle)
     -   [Props](#props)
     -   [State](#state)
     -   [Destructure Props and State](#destructure-props-and-state)
@@ -131,6 +132,9 @@ class ClassComponentExample extends Component {
 export default ClassComponentExample
 
 ```
+## Lifecycle
+The three most useful lifecycle functions are **render** **componentDidMount** and **componentWillRecieveProps**
+![](/gitimages/lifecycle.png)
 ## Props
 props provide a way of passing properties/data down from one component to another, typically from a parent to a child component (unidirectional dataflow).
 
@@ -581,3 +585,4 @@ OR directly in one command
 
 ```npm install redux react-redux redux-thunk```
 
+```npm install redux``` and ```npm install react-redux```
