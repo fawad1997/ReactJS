@@ -16,6 +16,7 @@ This README files contains basic information required to learn and create react 
     -   [Form Validations](#form-validations)
     -   [Map-List Ilterations](#map-list-ilterations)
     -   [React Router](#react-router)
+-   [Redux](#redux)
 
 # React Basics
 ## What is React
@@ -568,6 +569,15 @@ Then include them in your project.
 ```import 'materialize-css/dist/css/materialize.min.css';```
 
 # Redux
-Install **redux** and **react-redux**
+Install **redux** and **react-redux** and **redux-thunk**
 
-```npm install redux``` and ```npm install react-redux```
+![](/gitimages/redux.jpg)
+![](/gitimages/redux1.jpg)
+![](/gitimages/redux2.jpg)
+
+```npm install redux``` and ```npm install react-redux``` and ```npm install redux-thunk```
+
+OR directly in one command
+
+```npm install redux react-redux redux-thunk```
+
