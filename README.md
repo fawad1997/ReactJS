@@ -576,8 +576,8 @@ Then include them in your project.
 Install **redux** and **react-redux** and **redux-thunk**
 
 ![](/gitimages/redux.jpg)
-![](/gitimages/redux1.jpg)
 ![](/gitimages/redux2.jpg)
+![](/gitimages/redux3.jpg)
 
 ```npm install redux``` and ```npm install react-redux``` and ```npm install redux-thunk```
 
