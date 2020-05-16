@@ -585,4 +585,55 @@ OR directly in one command
 
 ```npm install redux react-redux redux-thunk```
 
-```npm install redux``` and ```npm install react-redux```
+##### Create Store
+Create a new file named **Store.js** in **src** folder.
+
+and use the following code
+
+```javascript
+import { createStore, applyMiddleware, compose } from 'redux'
+import thunk from 'redux-thunk'
+import rootReducer from './reducers/rootReducer'
+
+const initialState = {}
+const middleWare = [thunk]
+let store;
+
+if (window.navigator.userAgent.includes("Chrome")) {
+    store = createStore(rootReducer,
+        initialState,
+        compose(applyMiddleware(...middleWare),
+            window.__REDUX_DEVTOOLS_EXTENSION__ &&
+            window.__REDUX_DEVTOOLS_EXTENSION__()
+        ))
+} else {
+    store = createStore(rootReducer,
+        initialState,
+        compose(applyMiddleware(...middleWare)))
+}
+
+export default store;
+```
+##### Root Reducer
+Create a folder named **reducer** and create a new file **rootReducer.js** that will contain all the reducers.
+
+```javascript
+import {combineReducers} from 'redux'
+
+export default combineReducers({
+
+});
+```
+
+Now go to **App.js** and wrap all components with store **Provider**.
+```javascript
+
+import { Provider } from 'react-redux';
+import store from './Store';
+
+//AND
+
+<Provider store={store}>
+    //ALL COMPONENTS HERE
+</Provider>
+```

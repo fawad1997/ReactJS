@@ -1,8 +1,5 @@
-const initialState = {
-    posts: []
-}
-const RootReducer = (state = initialState,action) => {
-    return state;
-}
+import {combineReducers} from 'redux'
 
-export default RootReducer;
+export default combineReducers({
+    errors:'myerror'
+});
