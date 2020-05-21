@@ -18,6 +18,7 @@ This README files contains basic information required to learn and create react 
     -   [Map-List Ilterations](#map-list-ilterations)
     -   [React Router](#react-router)
 -   [Redux](#redux)
+-   [Deployment](#deployment)
 
 # React Basics
 ## What is React
@@ -637,3 +638,20 @@ import store from './Store';
     //ALL COMPONENTS HERE
 </Provider>
 ```
+# Deployment
+Before deployment, make sure to install **npm install react-app-polyfill** because react apps are not by default supported by IE.
+and add
+```
+import 'react-app-polyfill/stable'
+```
+ in **App.js**
+ 
+ Also, remove Redux extension code from ""store.js** and only use
+```javascript
+     store = createStore(rootReducer,
+        initialState,
+        compose(applyMiddleware(...middleWare)))
+```
+
+run command ```npm run build``` to get build copy of your project... deploy it on any web server
+ 
