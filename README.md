@@ -1,3 +1,5 @@
+
+
 # ReactJS
 This README files contains basic information required to learn and create react app.
 ## Quick Links
@@ -43,7 +45,7 @@ npm install create-react-app
 
 create-react-app myapp
 ```
-It will create a directory called `my-app` inside the current folder.<br>
+It will create a directory called `myapp` inside the current folder.<br>
 Inside that directory, it will generate the initial project structure and install the transitive dependencies:
 
 ```
@@ -285,6 +287,7 @@ class FormExample extends Component {
                     <input type="submit" value="Submit" />
                 </form>
             </React.Fragment>
+        )
         )
     }
 }
@@ -654,4 +657,3 @@ import 'react-app-polyfill/stable'
 ```
 
 run command ```npm run build``` to get build copy of your project... deploy it on any web server
- 
